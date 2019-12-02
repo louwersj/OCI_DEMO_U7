@@ -1,0 +1,38 @@
+---
+- name: node configuration, prepare Project Fn server
+  gather_facts: No
+  hosts: localhost 
+
+  tasks:
+    - name: Enable OL7_addons repo
+      ini_file:
+        dest: /etc/yum.repos.d/public-yum-ol7.repo
+        section: 'ol7_addons'
+        option: enabled
+        value: "1"
+
+    - name: Install Docker
+      package:
+        name: docker-engine
+        state: latest
+      become: yes
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      become: yes
+
+    - name: Install Fn
+      shell: "curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh >> /dev/null 2>&1 | echo done"
+      ignore_errors: true
+      args:
+        executable: /bin/bash      
+        warn : no
+
+    - name: Start Fn server as daemon process
+      shell: /usr/local/bin/fn start -d
+      ignore_errors: true
+      args:
+        executable: /bin/bash
