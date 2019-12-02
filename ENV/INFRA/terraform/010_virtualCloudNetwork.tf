@@ -6,6 +6,6 @@
 resource "oci_core_virtual_network" "deployment_core_vcn" {
   compartment_id = "${oci_identity_compartment.deployment_root_compartment.id}"
   display_name = "Core VCN ${var.deployment_id}"
-  cidr_block = "192.168.11.0/24"
+  cidr_block = "10.1.0.0/16"
   dns_label = "core${var.deployment_id}"
 }
