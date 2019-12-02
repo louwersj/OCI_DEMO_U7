@@ -1,4 +1,34 @@
 #!/bin/bash
+# NAME:
+#   boot.sh
+#
+# DESC:
+#   Standard boot.sh script to be automatically started on first boot
+#   of a new VM. This will ensure that the assoicated ansible playbook
+#   will be downloaded and executed. The basic of this script is 
+#   static with the exception of the CONF_GIT_BASE variable which is 
+#   per node (VM) different and points to the exact git location to 
+#   enable the script to aquire the correct playbook. 
+#
+# LICENSE:
+# Copyright (C) 2015  Johan Louwers
+#
+# This code is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This code is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this code; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  
+# 02110-1301, USA.
+# *
+# */
 
 # Ensure this variable points to the GIT location where we store the config for this specific node. 
 CONF_GIT_BASE="https://raw.githubusercontent.com/louwersj/OCI_DEMO_U7/master/ENV/VM0/"
