@@ -7,3 +7,4 @@ export TF_VAR_region=PROVIDERegion
 export TF_VAR_private_key_path=PROVIDEPrivateKeyPath
 export TF_VAR_private_key_password=PROVIDEPrivateKeyPassword
 export TF_VAR_compartment_ocid=PROVIDECompartmentOCID
+export TF_VAR_deployment_id=PROVIDEBuildId
