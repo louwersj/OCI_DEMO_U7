@@ -12,5 +12,7 @@ sudo yum -y install ansible
 
 # get the default ansible playbook. The default ansible playbook
 # for each node is named "node_configuration.yaml
+sudo curl https://raw.githubusercontent.com/louwersj/OCI_DEMO_U7/master/ENV/VM0/node_configuration.yaml --output /tmp/node_configuration.yaml --silent
 
 # Run the default ansible playbook.
+sudo ansible-playbook /tmp/node_configuration.yaml
